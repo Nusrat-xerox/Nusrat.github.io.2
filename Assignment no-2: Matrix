@@ -1,0 +1,163 @@
+#include<stdio.h>
+
+float matA[3][3], matB[3][3];
+
+
+
+void addition(){
+
+    for(int i=0;i<3;i++){
+
+        for(int j=0;j<3;j++){
+
+            printf("%.2f ", matA[i][j] + matB[i][j]);
+
+        }
+
+        printf("\n");
+
+    }
+
+}
+
+
+
+void mul(){
+
+    float result[3][3] = {0};
+
+    for(int i=0;i<3;i++){
+
+        for(int j=0;j<3;j++){
+
+            for(int k=0;k<3;k++){
+
+                result[i][j] += matA[i][k] * matB[k][j];
+
+            }
+
+        }
+
+    }
+
+    for(int i=0;i<3;i++){
+
+        for(int j=0;j<3;j++){
+
+            printf("%.2f ", result[i][j]);
+
+        }
+
+        printf("\n");
+
+    }
+
+}
+
+
+
+void sub(){
+
+    for(int i=0;i<3;i++){
+
+        for(int j=0;j<3;j++){
+
+            printf("%.2f ", matA[i][j] - matB[i][j]);
+
+        }
+
+        printf("\n");
+
+    }
+
+}
+
+
+
+void div(){
+
+    for(int i=0;i<3;i++){
+
+        for(int j=0;j<3;j++){
+
+            if(matB[i][j] != 0)
+
+                printf("%.2f ", matA[i][j] / matB[i][j]);
+
+            else
+
+                printf("X "); // Indicating division by zero
+
+        }
+
+        printf("\n");
+
+    }
+
+}
+
+
+
+int main(){
+
+
+
+    printf("please enter your first matrix(3x3): \n");
+
+    for(int i=0;i<3;i++){
+
+        for(int j=0;j<3;j++){
+
+            scanf("%f", &matA[i][j]);
+
+        }
+
+    }
+
+    printf("please enter your second matrix(3x3): \n");
+
+    for(int i=0;i<3;i++){
+
+        for(int j=0;j<3;j++){
+
+            scanf("%f", &matB[i][j]);
+
+        }
+
+    }
+
+    printf("now select an operation: \n");
+
+    printf("1-addition \n");
+
+    printf("2-substraction \n");
+
+    printf("3-multiplication \n");
+
+    printf("4-division \n");
+
+    int op; scanf("%d", &op);
+
+    if(op==1){
+
+        addition();
+
+    }else if(op==2){
+
+        sub();
+
+    }else if(op==3){
+
+        mul();
+
+    }else if(op==4){
+
+        div();
+
+    }
+
+
+
+}
+
+    
